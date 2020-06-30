@@ -1,4 +1,4 @@
-#Mon Jun 29 16:46:53 IST 2020
-base.0=/Users/krutik_patel/Documents/AndroidStudioProjects/covid/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+#Tue Jun 30 14:04:26 IST 2020
+base.0=/Users/krutik_patel/Documents/AndroidStudioProjects/sakecblue_admin/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
