@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'details.dart';
+import 'login.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -25,7 +27,7 @@ class Home extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => details()),
+            MaterialPageRoute(builder: (context) => Login_Admin()),
           );
         },
         child: Icon(Icons.arrow_forward),

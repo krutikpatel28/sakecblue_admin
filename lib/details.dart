@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class details extends StatelessWidget {
+class Details extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,12 +15,12 @@ class details extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0.0,
       ),
-      body: detail_layout(),
+      body: Detail_Layout(),
     );
   }
 }
 
-class detail_layout extends StatelessWidget {
+class Detail_Layout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -35,16 +35,16 @@ class detail_layout extends StatelessWidget {
               ),
             ],
           ),
-          detail_image(),
-          data(),
-          add_button(),
+          Detail_Image(),
+          Data(),
+          //Add_Button(),
         ],
       ),
     );
   }
 }
 
-class data extends StatelessWidget {
+class Data extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -68,29 +68,29 @@ class data extends StatelessWidget {
   }
 }
 
-class detail_image extends StatelessWidget {
+class Detail_Image extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image(image: AssetImage('images/details.png'));
   }
 }
 
-class add_button extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        Align(
-          alignment: Alignment.bottomLeft,
-          child: FloatingActionButton(
-            backgroundColor: Colors.black,
-            child: Icon(Icons.add),
-            onPressed: () {
-              //link here
-            },
-          ),
-        ),
-      ],
-    );
-  }
-}
+// class Add_Button extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Stack(
+//       children: <Widget>[
+//         Align(
+//           alignment: Alignment.bottomLeft,
+//           child: FloatingActionButton(
+//             backgroundColor: Colors.black,
+//             child: Icon(Icons.add),
+//             onPressed: () {
+//               //link here
+//             },
+//           ),
+//         ),
+//       ],
+//     );
+//   }
+// }
