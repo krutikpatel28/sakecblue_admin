@@ -4,10 +4,13 @@ class Admin_dash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          // Add your onPressed code here!
+        },
+        label: Text('Detailed Analysis'),
+        icon: Icon(Icons.timeline),
         backgroundColor: Colors.black,
-        onPressed: () {},
-        child: Icon(Icons.arrow_forward),
       ),
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -38,12 +41,21 @@ class Dashboard_Layout extends StatelessWidget {
               child: Align(
             alignment: Alignment.centerRight,
             child: RaisedButton.icon(
-              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(25),
+              ),
+              color: Colors.black,
               onPressed: () {
                 //date picker here
               },
-              icon: Icon(Icons.date_range),
-              label: Text("Date"),
+              icon: Icon(
+                Icons.date_range,
+                color: Colors.white,
+              ),
+              label: Text(
+                "Date",
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           )),
           //date end
@@ -54,7 +66,32 @@ class Dashboard_Layout extends StatelessWidget {
               Left_text(),
               Right_graph(),
             ],
-          )
+          ),
+          //text and graph end
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(top: 20, bottom: 5),
+                child: Text(
+                  "Risk In Campus",
+                  style: TextStyle(fontFamily: "Helvitica", fontSize: 20),
+                ),
+              )
+            ],
+          ),
+          // risk numbers
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              TotalriskNumbers(),
+              HighriskNumbers(),
+              MedriskNumbers(),
+              LowriskNumbers(),
+            ],
+          ),
+
+          //risk numbers end
         ],
       ),
     );
@@ -69,14 +106,13 @@ class Left_text extends StatelessWidget {
       child: Container(
           width: MediaQuery.of(context).size.width * 0.33,
           height: MediaQuery.of(context).size.height * 0.25,
-          color: Colors.lightGreenAccent,
           child: Column(
             children: <Widget>[
               Row(
                 children: <Widget>[
                   Text(
                     "28",
-                    style: TextStyle(fontFamily: "Bebas", fontSize: 50),
+                    style: TextStyle(fontFamily: "Bebas", fontSize: 60),
                   ),
                 ],
               ),
@@ -88,9 +124,42 @@ class Left_text extends StatelessWidget {
                   )
                 ],
               ),
-              Row(
-                children: <Widget>[Text("\nHigh Risk\nMed Risk\nLow Risk")],
-              )
+              Padding(
+                  padding: EdgeInsets.only(top: 28),
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.04,
+                        height: MediaQuery.of(context).size.width * 0.04,
+                        color: Colors.red,
+                      ),
+                      Text("\t\tHigh Risk")
+                    ],
+                  )),
+              Padding(
+                  padding: EdgeInsets.only(top: 8),
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.04,
+                        height: MediaQuery.of(context).size.width * 0.04,
+                        color: Colors.black,
+                      ),
+                      Text("\t\tMed Risk")
+                    ],
+                  )),
+              Padding(
+                  padding: EdgeInsets.only(top: 8),
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.04,
+                        height: MediaQuery.of(context).size.width * 0.04,
+                        color: Colors.blue,
+                      ),
+                      Text("\t\tLow Risk")
+                    ],
+                  ))
             ],
           )),
     );
@@ -109,13 +178,181 @@ class Right_graph extends StatelessWidget {
           onPressed: () {
             //link page here
           },
-          child: Text("Right sample Graph"),
+          child: Text("Graph Appears Here"),
           elevation: 0.0,
           color: Colors.limeAccent,
           shape: RoundedRectangleBorder(
             borderRadius: new BorderRadius.circular(5.0),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class TotalriskNumbers extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(top: 10),
+      child: Row(
+        children: <Widget>[
+          Container(
+            width: MediaQuery.of(context).size.width * 0.2,
+            height: MediaQuery.of(context).size.height * 0.1,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      "69",
+                      style: TextStyle(fontFamily: "Bebas", fontSize: 40),
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      "Total",
+                      style: TextStyle(fontFamily: 'Bebas', fontSize: 20),
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class HighriskNumbers extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(top: 10),
+      child: Row(
+        children: <Widget>[
+          Container(
+            width: MediaQuery.of(context).size.width * 0.2,
+            height: MediaQuery.of(context).size.height * 0.1,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      "8",
+                      style: TextStyle(
+                          fontFamily: "Bebas", fontSize: 40, color: Colors.red),
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      "High",
+                      style: TextStyle(
+                          fontFamily: 'Bebas', fontSize: 20, color: Colors.red),
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class MedriskNumbers extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(top: 10),
+      child: Row(
+        children: <Widget>[
+          Container(
+            width: MediaQuery.of(context).size.width * 0.2,
+            height: MediaQuery.of(context).size.height * 0.1,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      "34",
+                      style: TextStyle(fontFamily: "Bebas", fontSize: 40),
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      "Medium",
+                      style: TextStyle(fontFamily: 'Bebas', fontSize: 20),
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class LowriskNumbers extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(top: 10),
+      child: Row(
+        children: <Widget>[
+          Container(
+            width: MediaQuery.of(context).size.width * 0.2,
+            height: MediaQuery.of(context).size.height * 0.1,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      "27",
+                      style: TextStyle(
+                          fontFamily: "Bebas",
+                          fontSize: 40,
+                          color: Colors.blue),
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      "Low",
+                      style: TextStyle(
+                          fontFamily: 'Bebas',
+                          fontSize: 20,
+                          color: Colors.blue),
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
